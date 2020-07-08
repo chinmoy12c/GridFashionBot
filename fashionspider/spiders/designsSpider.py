@@ -3,7 +3,7 @@ import scrapy
 import logging
 from scrapy.crawler import CrawlerProcess
 
-from spiderInit import SpiderInit
+from .spiderInit import SpiderInit
 
 spider_init = SpiderInit()
 
