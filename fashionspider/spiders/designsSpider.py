@@ -42,6 +42,9 @@ class DesignSpider(scrapy.Spider):
         for index,section in enumerate(response.css(sectionHead).getall()):
             if (index >= self.numberOfSections):
                 return
+
+            section = section.replace("'","")
+
             self.data[self.currentSite]["sections"][section] = {}
             self.data[self.currentSite]["sections"][section]["sectionImageLink"] = ''
             followLink = response.css(followLinkRule)[index].get()
