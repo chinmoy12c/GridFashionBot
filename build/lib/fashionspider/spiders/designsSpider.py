@@ -47,8 +47,6 @@ class DesignSpider(scrapy.Spider):
             followLink = response.css(followLinkRule)[index].get()
             followLink = relativeTo + followLink
 
-            self.data[self.currentSite]["sections"][section]["sectionRedirect"] = followLink
-            
             if (hasSectionImage):
                 if (isSrcSet):
                     imgUrl = response.css(sectionImageRule)[index].get().split(',')[2].split()[0]
