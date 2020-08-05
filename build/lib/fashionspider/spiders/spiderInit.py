@@ -41,6 +41,19 @@ class SpiderInit:
                 "imgRelativeTo" : 'https://www.collezioni.info'
             },
 
+            'https://www.glamourmagazine.co.uk/topic/fashion' : {
+                "siteId" : "GlamourMagazine",
+                "sectionHead" : 'h3.c-card__title span::text',
+                "followLink" : 'article.c-card a::attr(href)',
+                "sectionImageRule" : 'div.c-card__obj img::attr(data-srcset)',
+                "relativeTo" : 'https://www.glamourmagazine.co.uk',
+                "subsectionHead" : 'figcaption p::text',
+                "isSrcSet" : True,
+                "hasSectionImage" : True,
+                "subsectionImgRule" : 'figure.c-figure img::attr(data-srcset)',
+                'imgRelativeTo' : ''
+            },
+
             #Celeb section sites
             "https://www.vogue.in/fashion/fashion-trends" : {
                 "siteId" : "Celebrity Section",
