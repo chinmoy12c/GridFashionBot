@@ -15,12 +15,14 @@ class DesignSpider(scrapy.Spider):
         'https://www.vogue.co.uk/fashion/fashion-trends',
         'https://www.collezioni.info/en/shows/page/3/',
         'https://patternbank.com/trends',
+        'https://www.glamourmagazine.co.uk/topic/fashion'
     ]
 
     def __init__(self):
         self.data = {}
         self.currentSite = ''
         self.numberOfSections = 10
+        self.numberOfSubSections = 10
 
     def parse(self, response):
 
@@ -80,6 +82,9 @@ class DesignSpider(scrapy.Spider):
         self.data[site]["sections"][section]["subsections"] = {}
 
         for index,subsection in enumerate(response.css(subsectionHead).getall()):
+
+            if (index > self.numberOfSubSections):
+                return
 
             if (index >= len(response.css(subsectionImgRule).getall())):
                 return
